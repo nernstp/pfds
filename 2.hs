@@ -1,4 +1,5 @@
 import Control.Exception
+import Data.Map
 
 data BTree a = Empty | Branch (BTree a) a (BTree a)
     deriving Show 
@@ -54,4 +55,9 @@ complete x d = recu Empty 0
                                          else recu (Branch n x n) (i+1)
 
 --b)
-complete2 x d 
+create x 0 = Empty
+create x 1 = Branch Empty x Empty
+create x d = Branch (create x (div d 2)) x (create x (div (d-1) 2))
+
+--2.6
+type FiniteMap = Map
