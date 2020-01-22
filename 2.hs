@@ -59,5 +59,7 @@ create x 0 = Empty
 create x 1 = Branch Empty x Empty
 create x d = Branch (create x (div d 2)) x (create x (div (d-1) 2))
 
+
+
 --2.6
 type FiniteMap = Map
